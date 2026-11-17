@@ -84,6 +84,36 @@ Possible Errors:
 - 400: Account is inactive.
 - 429: Too many login attempts.
 
+### 2.3 JWT Token Refresh
+
+Endpoint:
+POST /api/auth/token/refresh/
+
+Authentication:
+Refresh token required in request body.
+
+Request:
+{
+    "refresh": "<refresh_token>"
+}
+
+Success Response: 200 OK
+
+{
+    "access": "<new_access_token>",
+    "refresh": "<new_refresh_token>"
+}
+
+Possible Errors:
+- 401: Invalid refresh token.
+- 401: Expired refresh token.
+- 401: Blacklisted refresh token.
+
+Refresh Token Rotation:
+- Generates a new access token.
+- Generates a new refresh token.
+- Blacklists the previous refresh token.
+
 ## 3. JWT Authentication
 
 For protected endpoints, include the access token in the request header.
