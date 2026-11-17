@@ -12,6 +12,8 @@ from rest_framework import status
 
 from .serializers import LoginSerializer
 from rest_framework.throttling import AnonRateThrottle, ScopedRateThrottle
+
+from .serializers import LogoutSerializer
 class CustomerRegistrationView(generics.CreateAPIView):
 
     serializer_class = CustomerRegistrationSerializer
@@ -76,5 +78,18 @@ class LoginView(APIView):
 
         return Response(
             response_data,
+            status=status.HTTP_200_OK
+        )
+
+class LogoutView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = LogoutSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        result = serializer.save()
+
+        return Response(
+            result,
             status=status.HTTP_200_OK
         )

@@ -137,6 +137,25 @@ Result:
 Token refresh API implemented and tested successfully.
 
 
+## Phase 3.4: JWT Logout API
+
+Status: Completed (after successful testing)
+
+Tasks:
+- Created LogoutSerializer.
+- Implemented LogoutView.
+- Added logout endpoint.
+- Integrated SimpleJWT token blacklisting.
+- Tested successful logout.
+- Tested reuse of blacklisted refresh token.
+- Tested invalid refresh token.
+
+Endpoint:
+POST /api/auth/logout/
+
+Result:
+Logout API implemented and tested successfully.
+
 # Phase 4: Token Management
 
 Status: Pending

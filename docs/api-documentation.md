@@ -114,6 +114,38 @@ Refresh Token Rotation:
 - Generates a new refresh token.
 - Blacklists the previous refresh token.
 
+
+### 2.4 User Logout API
+
+Endpoint:
+POST /api/auth/logout/
+
+Authentication:
+Valid refresh token required in request body.
+
+Request:
+
+{
+    "refresh": "<refresh_token>"
+}
+
+Success Response: 200 OK
+
+{
+    "message": "Logout successful."
+}
+
+Possible Errors:
+- 400: Invalid or expired refresh token.
+- 400: Unable to blacklist token.
+
+Functionality:
+- Validates the refresh token.
+- Adds the refresh token to the blacklist.
+- Prevents future use of that refresh token.
+- Frontend must clear stored access and refresh tokens.
+
+
 ## 3. JWT Authentication
 
 For protected endpoints, include the access token in the request header.
