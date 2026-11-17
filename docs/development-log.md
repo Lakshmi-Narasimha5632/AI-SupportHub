@@ -156,6 +156,31 @@ POST /api/auth/logout/
 Result:
 Logout API implemented and tested successfully.
 
+
+## Phase 3.5: User Profile API
+
+Status: Completed (after successful testing)
+
+Tasks:
+- Created UserProfileSerializer.
+- Implemented UserProfileView.
+- Added GET profile endpoint.
+- Added PATCH profile endpoint.
+- Implemented authenticated user access.
+- Prevented users from modifying sensitive fields.
+- Tested profile retrieval.
+- Tested profile updates.
+- Tested unauthorized access.
+- Tested role modification protection.
+
+Endpoints:
+- GET /api/auth/profile/
+- PATCH /api/auth/profile/
+
+Result:
+User Profile API implemented and tested successfully.
+
+
 # Phase 4: Token Management
 
 Status: Pending

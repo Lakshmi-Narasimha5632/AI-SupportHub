@@ -1,7 +1,7 @@
 
 from django.urls import path
 
-from .views import CustomerRegistrationView, LoginView,LogoutView
+from .views import CustomerRegistrationView, LoginView,LogoutView,UserProfileView
 from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
@@ -28,4 +28,9 @@ urlpatterns = [
         LogoutView.as_view(),
         name='user-logout'
     ),
+    path(
+    'profile/',
+    UserProfileView.as_view(),
+    name='user-profile'
+),
 ]

@@ -154,3 +154,27 @@ class LogoutSerializer(serializers.Serializer):
         return {
             'message': 'Logout successful.'
         }
+
+class UserProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+
+        fields = [
+            'id',
+            'full_name',
+            'email',
+            'role',
+            'auth_provider',
+            'is_active',
+            'date_joined',
+        ]
+
+        read_only_fields = [
+            'id',
+            'email',
+            'role',
+            'auth_provider',
+            'is_active',
+            'date_joined',
+        ]

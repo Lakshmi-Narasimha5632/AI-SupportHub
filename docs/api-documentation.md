@@ -146,6 +146,48 @@ Functionality:
 - Frontend must clear stored access and refresh tokens.
 
 
+### 2.5 User Profile API
+
+#### Retrieve Profile
+
+Method: GET
+
+Endpoint: /api/auth/profile/
+
+Authentication: Required (JWT Access Token)
+
+Success Response: 200 OK
+
+Returns the authenticated user's profile.
+
+#### Update Profile
+
+Method: PATCH
+
+Endpoint: /api/auth/profile/
+
+Authentication: Required (JWT Access Token)
+
+Request:
+
+{
+    "full_name": "Lakshmi Narasimha"
+}
+
+Success Response: 200 OK
+
+Returns the updated user profile.
+
+Possible Errors:
+- 400: Invalid input.
+- 401: Authentication required.
+
+Security:
+- Users can only access their own profiles.
+- Email and role cannot be modified through this endpoint.
+- Account status is read-only.
+
+
 ## 3. JWT Authentication
 
 For protected endpoints, include the access token in the request header.

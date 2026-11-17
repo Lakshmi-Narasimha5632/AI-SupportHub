@@ -14,6 +14,8 @@ from .serializers import LoginSerializer
 from rest_framework.throttling import AnonRateThrottle, ScopedRateThrottle
 
 from .serializers import LogoutSerializer
+from rest_framework.permissions import IsAuthenticated
+from .serializers import UserProfileSerializer
 class CustomerRegistrationView(generics.CreateAPIView):
 
     serializer_class = CustomerRegistrationSerializer
@@ -93,3 +95,11 @@ class LogoutView(APIView):
             result,
             status=status.HTTP_200_OK
         )
+
+
+class UserProfileView(generics.RetrieveUpdateAPIView):
+    serializer_class = UserProfileSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_object(self):
+        return self.request.user
